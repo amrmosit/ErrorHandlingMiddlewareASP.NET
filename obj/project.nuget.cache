@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "8UVBfPVPPdc=",
+  "success": true,
+  "projectFilePath": "/Users/amrmostafa/Coding Projects/C#/ErrorHandlingMiddlewareASP.NET/ErrorHandlingMiddlewareASP.NET.csproj",
+  "expectedPackageFiles": [
+    "/Users/amrmostafa/.nuget/packages/microsoft.aspnetcore.openapi/9.0.5/microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "/Users/amrmostafa/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
