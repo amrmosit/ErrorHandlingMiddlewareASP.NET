@@ -14,9 +14,9 @@ public class ErrorHandlingController : ControllerBase
             return Ok("Here is the result: " + result);
 
         }
-        catch (DivisionByZeroException)
+        catch (DivideByZeroException)
         {
-            Console.writeLine("Error: Division by Zero is not allowed.");
+            Console.WriteLine("Error: Division by Zero is not allowed.");
             return BadRequest("Cannot divide by zero.");
         }
     }

@@ -1,5 +1,9 @@
 @ErrorHandlingMiddlewareASP.NET_HostAddress = http://localhost:5266
 
-
+// Division request with valid input
+GET http://localhost:5266/api/ErrorHandling/division?numerator=10&denominator=2
 
 ###
+// Division request with division by zero to test error handling
+GET http://localhost:5266/api/ErrorHandling/division?numerator=10&denominator=0
+Accept: application/json
