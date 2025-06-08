@@ -19,6 +19,23 @@ builder.Logging.AddConsole(); // Add console logging provider
 var app = builder.Build();
 app.UseHttpsRedirection();
 
+// Adding Global Middleware for error handling
+app.Use(async (context, next) =>
+{
+    try
+    {
+        await next(); // Call the next middleware in the pipeline
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Global exception caught: {ex.Message}");
+        context.Response.StatusCode = 500; // Internal Server Error
+        await context.Response.WriteAsync("An unexpected error occurred. Please try again later.");
+    }
+});
+
+app.UseRouting(); // Enable routing
+app.MapControllers(); // Map controllers to the request pipeline
 
 
 app.Run();
