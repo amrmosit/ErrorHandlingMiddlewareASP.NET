@@ -1,4 +1,5 @@
-using Serilog; // Add Serilog for logging // serilog is a logging library that provides a simple way to log messages in .NET applications. 
+using Serilog; // Add Serilog for logging as a thirdpart 
+// serilog is a logging library that provides a simple way to log messages in .NET applications. 
 
 var builder = WebApplication.CreateBuilder(args);
 // Configure Serilog for logging
@@ -11,6 +12,8 @@ long.Logger = new LoggerConfiguration()
 // pipeline configuration
 builder.Host.UseSerilog(); // Use Serilog for logging
 builder.Services.AddControllers(); // Add controllers to the service collection
+// Adding logging services
+// This adds the logging services to the service collection, allowing you to use logging throughout your application.
 builder.Logging.ClearProviders(); // Clear default logging providers
 builder.Logging.AddConsole(); // Add console logging provider
 
@@ -18,7 +21,8 @@ builder.Logging.AddConsole(); // Add console logging provider
 // The Build method creates the application instance based on the configuration and services defined in the builder.
 var app = builder.Build();
 app.UseHttpsRedirection();
-
+// This runs everytime the application runs to handle Global error handling.
+// It catches any unhandled exceptions that occur during the request processing pipeline.
 // Adding Global Middleware for error handling
 app.Use(async (context, next) =>
 {
